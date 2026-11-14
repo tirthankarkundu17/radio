@@ -108,10 +108,21 @@ Adding new songs takes under 30 seconds:
 
 ## 🌐 Deploying to Vercel ($0 / Free Tier)
 
-1. Push your code to a GitHub repository.
+### Option A: Using the Makefile or NPM (Instant CLI Deploy)
+```bash
+# Deploy preview deployment
+make deploy
+# OR: npm run deploy
+
+# Deploy directly to production
+make deploy-prod
+# OR: npm run deploy:prod
+```
+
+### Option B: Automatic Git Push
+1. Push your code to GitHub (`git push origin main`).
 2. Go to [Vercel](https://vercel.com) and click **"Add New Project"**.
-3. Import your repository and click **Deploy**.
-4. **Done!** Your AI Radio is live with global edge caching and free monthly bandwidth.
+3. Import your repository and click **Deploy**. Every push will automatically build and deploy!
 
 ---
 
