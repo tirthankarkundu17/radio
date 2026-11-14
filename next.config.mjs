@@ -7,14 +7,16 @@ const nextConfig = {
         source: "/tracks/:path*",
         headers: [
           { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
-          { key: "Accept-Ranges", value: "bytes" }
+          { key: "Accept-Ranges", value: "bytes" },
+          { key: "Access-Control-Allow-Origin", value: "*" },
         ],
       },
       {
         source: "/data/songs/:path*",
         headers: [
           { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
-          { key: "Accept-Ranges", value: "bytes" }
+          { key: "Accept-Ranges", value: "bytes" },
+          { key: "Access-Control-Allow-Origin", value: "*" },
         ],
       },
     ];

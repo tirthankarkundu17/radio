@@ -31,10 +31,37 @@ export function Visualizer({ analyser, isPlaying }: VisualizerProps) {
 
       ctx.clearRect(0, 0, width, height);
 
-      if (analyser && isPlaying) {
-        if (mode === "bars") {
-          analyser.getByteFrequencyData(dataArray);
+      if (isPlaying) {
+        if (analyser) {
+          if (mode === "bars") {
+            analyser.getByteFrequencyData(dataArray);
+          } else {
+            analyser.getByteTimeDomainData(dataArray);
+          }
+        } else {
+          // Dynamic simulated frequency and waveform data for mobile or non-WebAudio environments
+          const time = Date.now() * 0.004;
+          if (mode === "bars") {
+            for (let i = 0; i < bufferLength; i++) {
+              const freq = i / bufferLength;
+              const bass = Math.sin(time * 3.5) * 0.35 + 0.65;
+              const mid = Math.cos(time * 5.2 + i * 0.25) * 0.3 + 0.5;
+              const treble = Math.sin(time * 8.5 + i * 0.4) * 0.25 + 0.35;
+              const envelope = Math.max(0.1, 1 - Math.pow(freq, 0.7));
+              const value = (bass * 0.45 + mid * 0.35 + treble * 0.2) * envelope;
+              dataArray[i] = Math.min(255, Math.max(10, Math.floor(value * 235)));
+            }
+          } else {
+            for (let i = 0; i < bufferLength; i++) {
+              const v =
+                Math.sin(i * 0.18 + time * 5) * 0.5 * Math.cos(time * 2.5 + i * 0.08) +
+                Math.sin(time * 3 + i * 0.3) * 0.3;
+              dataArray[i] = Math.floor(128 + v * 64);
+            }
+          }
+        }
 
+        if (mode === "bars") {
           const barCount = 48;
           const barWidth = (width / barCount) * 0.7;
           const spacing = (width / barCount) * 0.3;
@@ -62,8 +89,6 @@ export function Visualizer({ analyser, isPlaying }: VisualizerProps) {
           }
         } else {
           // Waveform Mode
-          analyser.getByteTimeDomainData(dataArray);
-
           ctx.lineWidth = 2.5;
           const grad = ctx.createLinearGradient(0, 0, width, 0);
           grad.addColorStop(0, "#00f0ff");
