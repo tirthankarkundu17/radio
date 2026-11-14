@@ -70,13 +70,13 @@ export function TrackList({
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search tracks by title, artist, genre, vibe..."
-            className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-100/90 dark:bg-slate-900/60 border border-slate-300/80 dark:border-white/10 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-accent-cyan/60 focus:ring-1 focus:ring-accent-cyan/60 transition-all"
+            placeholder="Search tracks, artists, genres..."
+            className="w-full pl-10 pr-12 py-2.5 rounded-xl bg-slate-100/90 dark:bg-slate-900/60 border border-slate-300/80 dark:border-white/10 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-accent-cyan/60 focus:ring-1 focus:ring-accent-cyan/60 transition-all"
           />
           {searchQuery && (
             <button
               onClick={() => setSearchQuery("")}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-slate-400 hover:text-slate-800 dark:hover:text-white"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-medium text-slate-400 hover:text-slate-800 dark:hover:text-white px-1.5 py-0.5 rounded"
             >
               Clear
             </button>
@@ -84,14 +84,14 @@ export function TrackList({
         </div>
 
         {/* Counter */}
-        <div className="text-xs font-mono text-slate-500 dark:text-slate-400 flex items-center justify-between sm:justify-end gap-2 px-1">
+        <div className="text-xs font-mono text-slate-500 dark:text-slate-400 flex items-center justify-end gap-2 px-1">
           <span>{filteredTracks.length} tracks</span>
         </div>
       </div>
 
       {/* Genre Filter Pills */}
       {availableGenres.length > 2 && (
-        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
+        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none -mx-3 px-3 sm:mx-0 sm:px-0">
           <SlidersHorizontal className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 mr-1 flex-shrink-0" />
           {availableGenres.map((genre) => {
             const isSelected = selectedGenre === genre;

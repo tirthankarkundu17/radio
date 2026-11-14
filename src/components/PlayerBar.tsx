@@ -48,7 +48,7 @@ export function PlayerBar({
   const progressPercent = duration > 0 ? (currentTime / duration) * 100 : 0;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-40 glass-panel border-t border-slate-200/80 dark:border-white/10 shadow-2xl transition-colors duration-300">
+    <div className="fixed bottom-0 left-0 right-0 z-40 glass-panel border-t border-slate-200/80 dark:border-white/10 shadow-2xl transition-colors duration-300 pb-[max(0.5rem,env(safe-area-inset-bottom))]">
       {/* Interactive Progress Seekbar on top edge */}
       <div
         className="relative w-full h-1.5 bg-slate-300 dark:bg-slate-800/80 cursor-pointer group"
@@ -69,65 +69,65 @@ export function PlayerBar({
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2 sm:py-3 flex items-center justify-between gap-2.5 sm:gap-4">
         {/* Left: Track Info */}
-        <div className="flex items-center gap-3 min-w-0 max-w-[30%]">
+        <div className="flex items-center gap-2.5 sm:gap-3 min-w-0 flex-1 sm:flex-initial sm:max-w-[30%]">
           <img
             src={currentTrack.coverUrl}
             alt={currentTrack.title}
-            className="w-12 h-12 rounded-xl object-cover border border-black/5 dark:border-white/10 flex-shrink-0"
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl object-cover border border-black/5 dark:border-white/10 flex-shrink-0"
           />
-          <div className="min-w-0">
-            <h4 className="text-sm font-semibold text-slate-900 dark:text-white truncate flex items-center gap-2">
+          <div className="min-w-0 flex-1">
+            <h4 className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white truncate flex items-center gap-1.5">
               <span className="truncate">{currentTrack.title}</span>
-              <span className="text-[10px] font-bold uppercase px-1.5 py-0.5 rounded bg-accent-cyan/15 text-accent-cyan flex-shrink-0">
+              <span className="text-[9px] sm:text-[10px] font-bold uppercase px-1.5 py-0.5 rounded bg-accent-cyan/15 text-accent-cyan flex-shrink-0">
                 {currentTrack.language.toUpperCase()}
               </span>
             </h4>
-            <p className="text-xs text-slate-500 dark:text-slate-400 truncate">
+            <p className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 truncate">
               {currentTrack.artist} • {currentTrack.genre}
             </p>
           </div>
         </div>
 
         {/* Center: Controls */}
-        <div className="flex flex-col items-center gap-1.5 flex-1 max-w-md">
-          <div className="flex items-center gap-3 sm:gap-5">
+        <div className="flex flex-col items-center gap-0.5 sm:gap-1.5 flex-shrink-0 sm:flex-1 max-w-md">
+          <div className="flex items-center gap-1.5 sm:gap-5">
             {/* Previous */}
             <button
               onClick={onPrevious}
-              className="p-1.5 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
+              className="p-2 sm:p-1.5 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors rounded-full hover:bg-black/5 dark:hover:bg-white/5 active:scale-95 flex items-center justify-center min-w-[36px] min-h-[36px]"
               title="Previous Track"
             >
-              <SkipBack className="w-5 h-5" />
+              <SkipBack className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
 
             {/* Play/Pause */}
             <button
               onClick={onTogglePlay}
-              className="w-11 h-11 rounded-full bg-gradient-to-tr from-accent-cyan to-accent-purple text-black flex items-center justify-center shadow-lg shadow-accent-cyan/30 hover:scale-105 active:scale-95 transition-transform"
+              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-tr from-accent-cyan to-accent-purple text-black flex items-center justify-center shadow-lg shadow-accent-cyan/30 hover:scale-105 active:scale-95 transition-transform flex-shrink-0"
               title={isPlaying ? "Pause" : "Play"}
             >
               {isPlaying ? (
-                <Pause className="w-5 h-5 fill-black" />
+                <Pause className="w-4 h-4 sm:w-5 sm:h-5 fill-black" />
               ) : (
-                <Play className="w-5 h-5 fill-black ml-0.5" />
+                <Play className="w-4 h-4 sm:w-5 sm:h-5 fill-black ml-0.5" />
               )}
             </button>
 
             {/* Next */}
             <button
               onClick={onNext}
-              className="p-1.5 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
+              className="p-2 sm:p-1.5 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors rounded-full hover:bg-black/5 dark:hover:bg-white/5 active:scale-95 flex items-center justify-center min-w-[36px] min-h-[36px]"
               title="Next Track"
             >
-              <SkipForward className="w-5 h-5" />
+              <SkipForward className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
 
             {/* Radio Mode Button */}
             <button
               onClick={onToggleRadio}
-              className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-medium transition-all ${
+              className={`hidden xs:flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-medium transition-all ${
                 isRadioMode
                   ? "bg-accent-pink/15 text-accent-pink border border-accent-pink/30 shadow-md shadow-accent-pink/20"
                   : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white bg-slate-200 dark:bg-white/5"
@@ -140,7 +140,7 @@ export function PlayerBar({
           </div>
 
           {/* Timestamps */}
-          <div className="flex items-center justify-between w-full text-[11px] font-mono text-slate-500 dark:text-slate-400 px-2">
+          <div className="flex items-center justify-between w-full text-[10px] sm:text-[11px] font-mono text-slate-500 dark:text-slate-400 px-1 sm:px-2">
             <span>{formatTime(currentTime)}</span>
             <span>{formatTime(duration)}</span>
           </div>

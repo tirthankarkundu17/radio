@@ -41,7 +41,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-100 dark:bg-[#08090d] text-slate-900 dark:text-foreground flex flex-col pb-32 transition-colors duration-250">
+    <div className="min-h-screen bg-slate-100 dark:bg-[#08090d] text-slate-900 dark:text-foreground flex flex-col pb-36 sm:pb-32 transition-colors duration-250">
       {/* Top Header */}
       <Header
         isRadioMode={isRadioMode}
@@ -52,18 +52,18 @@ export default function Home() {
       />
 
       {/* Main Container */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 w-full space-y-8 flex-1">
+      <main className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pt-4 sm:pt-8 w-full space-y-6 sm:space-y-8 flex-1">
         {/* Hero / Live Broadcast Stage */}
-        <section className="relative overflow-hidden rounded-3xl glass-panel p-6 sm:p-8 border border-slate-200/90 dark:border-white/10 shadow-xl shadow-slate-200/60 dark:shadow-2xl">
+        <section className="relative overflow-hidden rounded-2xl sm:rounded-3xl glass-panel p-4 sm:p-8 border border-slate-200/90 dark:border-white/10 shadow-xl shadow-slate-200/60 dark:shadow-2xl">
           {/* Subtle Ambient Glow Backgrounds */}
           <div className="absolute -top-24 -left-24 w-72 h-72 bg-accent-cyan/15 rounded-full blur-3xl pointer-events-none opacity-40 dark:opacity-100" />
           <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-accent-purple/20 rounded-full blur-3xl pointer-events-none opacity-40 dark:opacity-100" />
 
-          <div className="relative z-10 flex flex-col lg:flex-row items-center gap-6 sm:gap-8">
+          <div className="relative z-10 flex flex-col lg:flex-row items-center gap-5 sm:gap-8">
             {/* Spinning Vinyl / Album Art */}
             <div className="relative group flex-shrink-0">
               <div
-                className={`relative w-40 h-40 sm:w-52 sm:h-52 rounded-2xl overflow-hidden shadow-2xl border-2 transition-all duration-500 ${
+                className={`relative w-36 h-36 sm:w-52 sm:h-52 rounded-2xl overflow-hidden shadow-2xl border-2 transition-all duration-500 ${
                   isPlaying
                     ? "border-accent-cyan shadow-accent-cyan/30 scale-[1.02]"
                     : "border-slate-200 dark:border-white/10"
@@ -93,29 +93,29 @@ export default function Home() {
             </div>
 
             {/* Now Playing Info & Visualizer */}
-            <div className="flex-1 w-full space-y-4">
+            <div className="flex-1 w-full space-y-3 sm:space-y-4">
               <div className="flex items-center gap-2">
-                <span className="flex items-center gap-1 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-accent-pink/15 text-accent-pink border border-accent-pink/30">
+                <span className="flex items-center gap-1 text-[11px] sm:text-xs font-bold uppercase tracking-wider px-2.5 sm:px-3 py-1 rounded-full bg-accent-pink/15 text-accent-pink border border-accent-pink/30">
                   <Radio className="w-3.5 h-3.5 animate-pulse" />
                   {isRadioMode ? "Radio Streaming" : "Now Playing"}
                 </span>
-                <span className="text-xs text-slate-400 font-mono">
+                <span className="text-[11px] sm:text-xs text-slate-400 font-mono truncate">
                   {languageTitles[selectedLanguage]}
                 </span>
               </div>
 
               <div>
-                <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                <h2 className="text-xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight break-words">
                   {currentTrack?.title || "Select a track"}
                 </h2>
-                <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 mt-1 flex items-center gap-2">
+                <p className="text-xs sm:text-base text-slate-600 dark:text-slate-300 mt-1 flex flex-wrap items-center gap-1.5 sm:gap-2">
                   <span>{currentTrack?.artist || "NeuroWave"}</span>
                   {currentTrack && (
                     <>
                       <span>•</span>
                       <span className="text-accent-cyan font-medium">{currentTrack.genre}</span>
                       <span>•</span>
-                      <span className="text-slate-500 dark:text-slate-400 text-xs font-mono">
+                      <span className="text-slate-500 dark:text-slate-400 text-[11px] sm:text-xs font-mono">
                         {currentTrack.mood}
                       </span>
                     </>

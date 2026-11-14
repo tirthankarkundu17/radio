@@ -35,9 +35,9 @@ export function TrackCard({ track, isActive, isPlaying, onPlay }: TrackCardProps
       }`}
     >
       {/* Left: Thumbnail & Info */}
-      <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+      <div className="flex items-center gap-2.5 sm:gap-4 min-w-0 flex-1">
         {/* Album Art with Play Overlay */}
-        <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden flex-shrink-0 group/cover border border-black/5 dark:border-white/10">
+        <div className="relative w-11 h-11 sm:w-14 sm:h-14 rounded-xl overflow-hidden flex-shrink-0 group/cover border border-black/5 dark:border-white/10">
           <img
             src={track.coverUrl}
             alt={track.title}
@@ -55,37 +55,37 @@ export function TrackCard({ track, isActive, isPlaying, onPlay }: TrackCardProps
                 <span className="w-1 bg-accent-pink animate-[bounce_0.5s_ease-in-out_infinite] h-2" />
               </div>
             ) : (
-              <Play className="w-5 h-5 text-white fill-white ml-0.5" />
+              <Play className="w-4 h-4 sm:w-5 sm:h-5 text-white fill-white ml-0.5" />
             )}
           </div>
         </div>
 
         {/* Text info */}
-        <div className="min-w-0">
-          <div className="flex items-center gap-2 mb-0.5">
+        <div className="min-w-0 flex-1">
+          <div className="flex items-center gap-1.5 sm:gap-2 mb-0.5 min-w-0">
             <span
-              className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border ${badge.bg}`}
+              className={`text-[9px] sm:text-[10px] font-bold uppercase tracking-wider px-1.5 sm:px-2 py-0.5 rounded-full border flex-shrink-0 ${badge.bg}`}
             >
               {badge.label}
             </span>
-            <span className="text-xs text-slate-500 dark:text-slate-400">
+            <span className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 truncate">
               {track.genre} • {track.mood}
             </span>
           </div>
           <h3
-            className={`text-sm sm:text-base font-semibold truncate ${
+            className={`text-xs sm:text-base font-semibold truncate ${
               isActive ? "text-accent-cyan" : "text-slate-900 dark:text-white group-hover:text-accent-purple dark:group-hover:text-slate-100"
             }`}
           >
             {track.title}
           </h3>
-          <p className="text-xs text-slate-500 dark:text-slate-400 truncate">{track.artist}</p>
+          <p className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 truncate">{track.artist}</p>
         </div>
       </div>
 
       {/* Right: Duration */}
-      <div className="flex items-center gap-2 flex-shrink-0 ml-3">
-        <span className="text-xs font-mono text-slate-500 dark:text-slate-400 flex items-center gap-1 min-w-[45px] justify-end">
+      <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0 ml-2 sm:ml-3">
+        <span className="text-[11px] sm:text-xs font-mono text-slate-500 dark:text-slate-400 flex items-center gap-1 min-w-[38px] sm:min-w-[45px] justify-end">
           <Clock className="w-3 h-3 text-slate-400 dark:text-slate-500 hidden sm:inline" />
           {formatTime(track.duration)}
         </span>
