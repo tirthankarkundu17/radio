@@ -64,12 +64,13 @@ radio/
 │   │   ├── page.tsx             # Main Radio & Catalog page
 │   │   └── globals.css          # Tailwind CSS styles & animations
 │   ├── components/
-│   │   ├── Header.tsx           # Logo, Genre Filters & Radio Mode Toggle
+│   │   ├── Header.tsx           # Logo, Language Switcher & Radio Mode Toggle
+│   │   ├── LanguageFilter.tsx   # Language Selector Tabs (All, English, বাংলা, हिंदी)
 │   │   ├── TrackList.tsx        # Searchable, filterable track catalog
-│   │   ├── TrackCard.tsx        # Individual track row with play trigger & prompt button
+│   │   ├── TrackCard.tsx        # Track row with language badge, play trigger & prompt modal
 │   │   ├── Visualizer.tsx       # 60 FPS Canvas audio visualizer (bars & waves)
 │   │   ├── PlayerBar.tsx        # Persistent audio player (progress bar, shuffle, volume)
-│   │   └── PromptModal.tsx      # Modal to view & copy full AI prompts and lyrics
+│   │   └── PromptModal.tsx      # Modal to view & copy full AI prompts and lyrics (Bengali & Devanagari Hindi support)
 │   ├── hooks/
 │   │   └── useAudioPlayer.ts    # Custom hook orchestrating playback, queue, and crossfade
 │   ├── types/
@@ -85,7 +86,7 @@ radio/
 
 ## 3. Data Schema (`src/data/tracks.json`)
 
-The single source of truth for all tracks:
+The single source of truth for all tracks, supporting multi-language tags (English, Bengali, and Hindi):
 
 ```json
 [
@@ -93,6 +94,7 @@ The single source of truth for all tracks:
     "id": "trk-01",
     "title": "Synthetic Rain",
     "artist": "NeuroWave Studio",
+    "language": "en",
     "genre": "Synthwave",
     "mood": "Late Night",
     "duration": 215,
@@ -104,8 +106,37 @@ The single source of truth for all tracks:
   },
   {
     "id": "trk-02",
+    "title": "বৃষ্টি ভেজা রাত (Rainy Night)",
+    "artist": "NeuroWave Bangla",
+    "language": "bn",
+    "genre": "Lofi Fusion",
+    "mood": "Nostalgic",
+    "duration": 195,
+    "audioUrl": "/tracks/bristi-bheja-raat.mp3",
+    "coverUrl": "/covers/bristi-bheja-raat.jpg",
+    "aiModel": "Suno v3.5",
+    "prompt": "Bengali acoustic lofi ballad, rain sound effects, soft acoustic guitar, melancholic vocal tone",
+    "lyrics": "[Verse 1]\nবৃষ্টি ভেজা এই রাতে\nস্মৃতির নদী বয় আনমনে...\nশহরের বাতি জ্বলে নেভে একা..."
+  },
+  {
+    "id": "trk-03",
+    "title": "रंगीन रातें (Neon Nights)",
+    "artist": "NeuroWave Hindi",
+    "language": "hi",
+    "genre": "Indie Pop Fusion",
+    "mood": "Late Night Vibe",
+    "duration": 204,
+    "audioUrl": "/tracks/rangeen-raatein.mp3",
+    "coverUrl": "/covers/rangeen-raatein.jpg",
+    "aiModel": "Suno v3.5",
+    "prompt": "Hindi indie pop, retro synth, gentle acoustic guitar groove, atmospheric soulful vocals, 115 bpm",
+    "lyrics": "[Verse 1]\nये रंगीन रातें, ये खामोश शहर...\nतेरी यादों का फिर से चला है कहर..."
+  },
+  {
+    "id": "trk-04",
     "title": "Lo-Fi Coffee Code",
     "artist": "NeuroWave Studio",
+    "language": "en",
     "genre": "Lofi",
     "mood": "Deep Focus",
     "duration": 182,
@@ -120,16 +151,19 @@ The single source of truth for all tracks:
 
 ### TypeScript Interface (`src/types/track.ts`)
 ```typescript
+export type SupportedLanguage = 'en' | 'bn' | 'hi' | 'all';
+
 export interface Track {
   id: string;
   title: string;
   artist: string;
+  language: 'en' | 'bn' | 'hi'; // English, Bengali, or Hindi
   genre: string;
   mood: string;
-  duration: number; // Duration in seconds
+  duration: number;            // Duration in seconds
   audioUrl: string;
   coverUrl: string;
-  aiModel: string;  // e.g. "Suno v3.5", "Udio v1.5"
+  aiModel: string;             // e.g. "Suno v3.5", "Udio v1.5"
   prompt: string;
   lyrics: string | null;
 }
@@ -142,15 +176,47 @@ export interface Track {
 ### 4.1 State Machine
 The core player state machine tracks:
 * `currentTrack`: The actively playing `Track` object.
+* `selectedLanguage`: `'all' | 'en' | 'bn' | 'hi'`. Filters the visible catalog.
 * `isPlaying`: Boolean play/pause state.
 * `isRadioMode`: Boolean. When `true`:
   * Autoplays the next song when current track ends.
-  * Shuffles through the selected genre or entire catalog.
-  * Ensures no repeats until all tracks in the current pool have been played.
+  * Respects the active language filter:
+    * If `selectedLanguage === 'hi'`, radio streams exclusively **Hindi AI tracks**.
+    * If `selectedLanguage === 'bn'`, radio streams exclusively **Bengali AI tracks**.
+    * If `selectedLanguage === 'en'`, radio streams exclusively **English AI tracks**.
+    * If `selectedLanguage === 'all'`, radio plays across the full multilingual catalog.
+  * Shuffles through the eligible tracks, ensuring no repeats until the full rotation completes.
 * `progress`: Current seek position in seconds.
 * `volume`: 0.0 to 1.0.
 
-### 4.2 Smooth Crossfade (Web Audio API)
+### 4.2 UI Wireframe & Layout
+
+```
++-----------------------------------------------------------------------------------------------+
+| [📻 NeuroWave FM]   [Language: 🌐 All | 🇬🇧 English | 🇧🇩 বাংলা | 🇮🇳 हिंदी]   [📻 Radio Mode: ON] |
+|                     [Genres: All | Synthwave | Lofi | Baul / Folk | Bollywood Fusion | Ambient] |
+|                     [🔍 Search track, artist, prompt...]                                      |
++-----------------------------------------------------------------------------------------------+
+|  NOW PLAYING / VISUALIZER STAGE                                                               |
+|  +---------------------------+  +-----------------------------------------------------------+ |
+|  | [Cover Art]               |  | [60 FPS Canvas Visualizer (Bars / Waveform)]              | |
+|  | Title: रंगीन रातें        |  | "Playing from: 🇮🇳 Hindi Indie Station"                    | |
+|  | Model: Suno v3.5 [hi]     |  | [Copy Prompt] [View Lyrics (हिंदी)]                       | |
+|  +---------------------------+  +-----------------------------------------------------------+ |
+|                                                                                               |
+|  TRACK CATALOG                                                                                |
+|  #   Title                       Lang   Genre            Mood       Model     Duration        |
+|  1.  रंगीन रातें (Neon Nights)   [HI]   Indie Pop Fusion Late Night Suno v3.5  3:24 [▶]        |
+|  2.  বৃষ্টি ভেজা রাত (Rainy Night) [BN]   Lofi Fusion      Nostalgic  Suno v3.5  3:15 [▶]        |
+|  3.  Synthetic Rain              [EN]   Synthwave        Late Night Suno v3.5  3:35 [▶]        |
+|  4.  Lo-Fi Coffee Code           [EN]   Lofi             Deep Focus Udio v1.5  3:02 [▶]        |
++-----------------------------------------------------------------------------------------------+
+|  BOTTOM PLAYER BAR                                                                            |
+|  [Art] "रंगीन रातें" | [⏮] [▶/⏸] [⏭] [🔀] | 01:12 ======--- 03:24 | 🔊 Volume                 |
++-----------------------------------------------------------------------------------------------+
+```
+
+### 4.3 Smooth Crossfade (Web Audio API)
 To create an authentic radio broadcast feeling, the player uses a **Dual-Node Audio Context**:
 1. When Track $A$ has 2 seconds remaining, Track $B$ begins buffering.
 2. Track $B$ starts playing silently ($Gain = 0.0$) and ramps up to $1.0$ over 2 seconds.

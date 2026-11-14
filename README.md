@@ -11,9 +11,10 @@
 
 ## ✨ Features
 
+- **🌐 Multi-Language Support (English, Bengali & Hindi):** Dedicated language selector (`All`, `English`, `বাংলা Bengali`, `हिंदी Hindi`). Listeners can browse songs by language or lock Radio Mode onto a single language station.
 - **📻 One-Click "Radio Mode":** Continuous autoplay with smart shuffle and smooth crossfades—delivers the hands-free vibe of a 24/7 live radio station without streaming server costs.
-- **🎧 On-Demand Jukebox:** Browse your complete AI music catalog, search by keyword, and filter by genre (*Synthwave, Lofi, Ambient, Cyberpunk*) or mood (*Deep Focus, Chill, High Energy*).
-- **🤖 Prompt & Model Inspector:** Inspect the exact prompts, parameters, lyrics, and AI models (*Suno v3.5, Udio v1.5*, etc.) used to create each song, with one-click prompt copying.
+- **🎧 On-Demand Jukebox:** Browse your complete AI music catalog, search by keyword, and filter by language, genre (*Synthwave, Lofi, Ambient, Baul / Folk, Bollywood / Indie Fusion*), or mood (*Deep Focus, Chill, Nostalgic*).
+- **🤖 Prompt & Model Inspector:** Inspect the exact prompts, parameters, lyrics (with native Bengali and Devanagari Hindi script support), and AI models (*Suno v3.5, Udio v1.5*, etc.) used to create each song, with one-click prompt copying.
 - **🌊 60 FPS Audio Visualizer:** Real-time canvas audio visualizer with reactive neon spectrum bars and oscilloscope waveforms powered by the Web Audio API.
 - **📱 Mobile Lock-Screen Controls:** Native background audio playback on iOS and Android with lock screen metadata and artwork via the W3C MediaSession API.
 - **⚡ Zero External Databases & $0 Hosting:** All MP3s, artwork, and metadata live directly inside the repository. Deploys to Vercel with **100 GB of free bandwidth per month** (~20,000 song plays/month).
@@ -88,20 +89,21 @@ Adding new songs takes under 30 seconds:
 2. **Save your cover artwork:**
    Place the cover image inside `public/covers/` (e.g. `public/covers/cyber-city.jpg`).
 3. **Register it in `src/data/tracks.json`:**
-   Add a new object to the list:
+   Add a new object to the list (supports `"language": "en" | "bn" | "hi"`):
    ```json
    {
-     "id": "cyber-city",
-     "title": "Cyber City Lights",
-     "artist": "Your Name / Channel",
-     "genre": "Synthwave",
-     "mood": "Energizing",
-     "duration": 210,
-     "audioUrl": "/tracks/cyber-city.mp3",
-     "coverUrl": "/covers/cyber-city.jpg",
+     "id": "bristi-bheja-raat",
+     "title": "বৃষ্টি ভেজা রাত (Rainy Night)",
+     "artist": "NeuroWave Bangla",
+     "language": "bn",
+     "genre": "Lofi Fusion",
+     "mood": "Nostalgic",
+     "duration": 195,
+     "audioUrl": "/tracks/bristi-bheja-raat.mp3",
+     "coverUrl": "/covers/bristi-bheja-raat.jpg",
      "aiModel": "Suno v3.5",
-     "prompt": "80s retro synthwave, driving analog bass, neon city atmosphere, 128 bpm",
-     "lyrics": null
+     "prompt": "Bengali acoustic lofi ballad, rain sound effects, soft acoustic guitar, melancholic vocal tone",
+     "lyrics": "বৃষ্টি ভেজা এই রাতে, স্মৃতির নদী বয়..."
    }
    ```
 4. Commit and push to Git—Vercel automatically updates your live site!
