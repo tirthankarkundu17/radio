@@ -24,11 +24,12 @@
 ### 2.1 The Two Playback Modes
 1. **On-Demand Jukebox Mode (Default):**
    * Listeners browse your collection of AI tracks.
-   * Search by keyword, filter by Genre (*Synthwave, Lofi, Ambient, Cyberpunk, Cinematic*) or Mood (*Deep Focus, Upbeat, Night Ride*).
+   * **Language Filter (English, Bengali & Hindi):** Dedicated language selector (`All`, `English`, `বাংলা Bengali`, `हिंदी Hindi`) so listeners instantly find songs in their preferred language.
+   * Search by keyword, filter by Genre (*Synthwave, Lofi, Ambient, Cyberpunk, Baul / Folk Fusion, Bollywood / Indie Fusion, Cinematic*) or Mood (*Deep Focus, Upbeat, Night Ride, Nostalgic*).
    * Click any song to play instantly.
-   * Inspect the exact prompt, AI model (Suno v3.5, Udio 1.5), and lyrics used to create the song.
 2. **"Radio Mode" (One-Click 24/7 Vibe):**
    * A single prominent button in the header: **"📻 Radio Mode: ON"**.
+   * **Language-Aware Radio Stations:** When in Radio Mode, listeners can listen to a unified global shuffle OR lock the station to a specific language (e.g., continuous *24/7 Hindi AI Radio*, *24/7 Bengali AI Radio*, or *24/7 English AI Radio*).
    * Automatically shuffles and plays through the collection continuously with soft 2-second crossfades between songs.
    * Hands-free listening for studying, coding, or chilling—delivers the feeling of a live radio station without complex server infrastructure.
 
@@ -46,20 +47,20 @@
 
 Adding new AI-generated music takes less than 30 seconds:
 1. Generate track on Suno / Udio / local AI model.
-2. Drop `song-name.mp3` into `public/tracks/`.
+2. Drop `song-name.mp3` into `public/data/songs/` (checked into the Git repo).
 3. Drop `song-name.jpg` into `public/covers/`.
-4. Add a quick entry to `data/tracks.json`:
+4. Add a quick entry to `src/data/tracks.json`:
    ```json
    {
-     "id": "neon-drive",
-     "title": "Neon Drive",
-     "genre": "Synthwave",
-     "mood": "Night Ride",
-     "audioUrl": "/tracks/neon-drive.mp3",
-     "coverUrl": "/covers/neon-drive.jpg",
-     "duration": 195,
-     "aiModel": "Suno v3.5",
-     "prompt": "80s retro synthwave, driving analog bass, 128 bpm"
+     "id": "bristi-bheja-raat",
+     "title": "বৃষ্টি ভেজা রাত (Rainy Night)",
+     "artist": "NeuroWave Bangla",
+     "language": "bn",
+     "genre": "Lofi Fusion",
+     "mood": "Nostalgic",
+     "audioUrl": "/data/songs/bristi-bheja-raat.mp3",
+     "coverUrl": "/covers/bristi-bheja-raat.jpg",
+     "duration": 195
    }
    ```
 5. Push to GitHub $\rightarrow$ Vercel automatically redeploys live in under 45 seconds!

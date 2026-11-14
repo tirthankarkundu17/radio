@@ -1,0 +1,79 @@
+[
+  {
+    "id": "bn-nirabe-niralay",
+    "title": "নীরবে নিরালায় (Nirabe Niralay)",
+    "artist": "NeuroWave",
+    "language": "bn",
+    "genre": "Acoustic Ballad",
+    "mood": "Peaceful / Soulful",
+    "duration": 165,
+    "audioUrl": "/data/songs/bengali/Nirabe%20Niralay.wav",
+    "coverUrl": "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=600&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": "bn-sahar-pichtala-mon",
+    "title": "শহর পিচঢালা মন (Sahar Pichtala Mon)",
+    "artist": "NeuroWave",
+    "language": "bn",
+    "genre": "Indie Fusion",
+    "mood": "Urban Nostalgia",
+    "duration": 148,
+    "audioUrl": "/data/songs/bengali/Sahar%20Pichtala%20Mon.wav",
+    "coverUrl": "https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=600&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": "bn-megher-thikana",
+    "title": "মেঘের ঠিকানা (Megher Thikana)",
+    "artist": "NeuroWave",
+    "language": "bn",
+    "genre": "Romantic Lofi",
+    "mood": "Dreamy / Rain Vibe",
+    "duration": 158,
+    "audioUrl": "/data/songs/bengali/Megher%20Thikana.wav",
+    "coverUrl": "https://images.unsplash.com/photo-1534088568595-a066f410bcda?w=600&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": "hi-tera-nasha",
+    "title": "तेरा नशा (Tera Nasha)",
+    "artist": "NeuroWave",
+    "language": "hi",
+    "genre": "Hindi Pop / Romance",
+    "mood": "Late Night Vibe",
+    "duration": 169,
+    "audioUrl": "/data/songs/hindi/Tera%20Nasha.wav",
+    "coverUrl": "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": "hi-mahi-ve",
+    "title": "माही वे (Mahi Ve)",
+    "artist": "NeuroWave",
+    "language": "hi",
+    "genre": "Hindi Romance",
+    "mood": "Soulful / Heartfelt",
+    "duration": 170,
+    "audioUrl": "/data/songs/hindi/Mahi%20Ve.wav",
+    "coverUrl": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": "en-loop",
+    "title": "Loop",
+    "artist": "NeuroWave",
+    "language": "en",
+    "genre": "Electronic / Synth",
+    "mood": "Late Night Drive",
+    "duration": 177,
+    "audioUrl": "/data/songs/english/loop.wav",
+    "coverUrl": "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=600&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": "en-tonight",
+    "title": "Tonight",
+    "artist": "NeuroWave",
+    "language": "en",
+    "genre": "Indie Pop",
+    "mood": "Summer Night",
+    "duration": 178,
+    "audioUrl": "/data/songs/english/tonight.wav",
+    "coverUrl": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600&auto=format&fit=crop&q=80"
+  }
+]

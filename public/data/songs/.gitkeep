@@ -1,0 +1,4 @@
+# Drop your .mp3 audio files here
+# Files here are automatically accessible in tracks.json as:
+# "audioUrl": "/data/songs/your-file-name.mp3"
+

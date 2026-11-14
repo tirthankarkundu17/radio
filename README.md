@@ -11,12 +11,12 @@
 
 ## ✨ Features
 
+- **🌐 Multi-Language Support (English, Bengali & Hindi):** Dedicated language selector (`All`, `English`, `বাংলা Bengali`, `हिंदी Hindi`). Listeners can browse songs by language or lock Radio Mode onto a single language station.
 - **📻 One-Click "Radio Mode":** Continuous autoplay with smart shuffle and smooth crossfades—delivers the hands-free vibe of a 24/7 live radio station without streaming server costs.
-- **🎧 On-Demand Jukebox:** Browse your complete AI music catalog, search by keyword, and filter by genre (*Synthwave, Lofi, Ambient, Cyberpunk*) or mood (*Deep Focus, Chill, High Energy*).
-- **🤖 Prompt & Model Inspector:** Inspect the exact prompts, parameters, lyrics, and AI models (*Suno v3.5, Udio v1.5*, etc.) used to create each song, with one-click prompt copying.
+- **🎧 On-Demand Jukebox:** Browse your complete music catalog, search by title/artist/genre, and filter by language, genre (*Synthwave, Lofi, Ambient, Baul / Folk, Bollywood / Indie Fusion*), or mood (*Deep Focus, Chill, Nostalgic*).
 - **🌊 60 FPS Audio Visualizer:** Real-time canvas audio visualizer with reactive neon spectrum bars and oscilloscope waveforms powered by the Web Audio API.
 - **📱 Mobile Lock-Screen Controls:** Native background audio playback on iOS and Android with lock screen metadata and artwork via the W3C MediaSession API.
-- **⚡ Zero External Databases & $0 Hosting:** All MP3s, artwork, and metadata live directly inside the repository. Deploys to Vercel with **100 GB of free bandwidth per month** (~20,000 song plays/month).
+- **⚡ Zero External Databases & $0 Hosting:** All MP3s, artwork, and metadata are checked directly into the repository. Deploys to Vercel with **100 GB of free bandwidth per month** (~20,000 song plays/month).
 
 ---
 
@@ -25,12 +25,13 @@
 ```
 radio/
 ├── public/
-│   ├── tracks/                  # Drop your AI-generated MP3 files here
-│   │   ├── neon-drift.mp3
-│   │   └── midnight-coffee.mp3
+│   ├── data/
+│   │   └── songs/               # Drop your MP3 audio files here
+│   │       ├── cyber-drift.mp3
+│   │       └── bristi-raat.mp3
 │   └── covers/                  # Drop your album covers / artwork here
-│       ├── neon-drift.jpg
-│       └── midnight-coffee.jpg
+│       ├── cyber-drift.jpg
+│       └── bristi-raat.jpg
 ├── src/
 │   ├── app/
 │   │   ├── layout.tsx           # Root layout & SEO meta tags
@@ -39,10 +40,9 @@ radio/
 │   ├── components/
 │   │   ├── Header.tsx           # Station logo, filters & Radio Mode toggle
 │   │   ├── TrackList.tsx        # Searchable and filterable music library
-│   │   ├── TrackCard.tsx        # Single track row with play trigger & prompt button
+│   │   ├── TrackCard.tsx        # Single track row with play trigger
 │   │   ├── Visualizer.tsx       # 60 FPS Canvas audio visualizer
-│   │   ├── PlayerBar.tsx        # Persistent bottom player with seek & volume controls
-│   │   └── PromptModal.tsx      # Modal to view & copy full AI prompts and lyrics
+│   │   └── PlayerBar.tsx        # Persistent bottom player with seek & volume controls
 │   ├── hooks/
 │   │   └── useAudioPlayer.ts    # Audio playback engine, queue manager, & crossfade logic
 │   ├── types/
@@ -84,24 +84,22 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 Adding new songs takes under 30 seconds:
 
 1. **Save your audio file:**
-   Place your generated `.mp3` file inside `public/tracks/` (e.g. `public/tracks/cyber-city.mp3`).
+   Place your generated `.mp3` file inside `public/data/songs/` (e.g. `public/data/songs/bristi-bheja-raat.mp3`).
 2. **Save your cover artwork:**
-   Place the cover image inside `public/covers/` (e.g. `public/covers/cyber-city.jpg`).
+   Place the cover image inside `public/covers/` (e.g. `public/covers/bristi-bheja-raat.jpg`).
 3. **Register it in `src/data/tracks.json`:**
-   Add a new object to the list:
+   Add a new object to the list (supports `"language": "en" | "bn" | "hi"`):
    ```json
    {
-     "id": "cyber-city",
-     "title": "Cyber City Lights",
-     "artist": "Your Name / Channel",
-     "genre": "Synthwave",
-     "mood": "Energizing",
-     "duration": 210,
-     "audioUrl": "/tracks/cyber-city.mp3",
-     "coverUrl": "/covers/cyber-city.jpg",
-     "aiModel": "Suno v3.5",
-     "prompt": "80s retro synthwave, driving analog bass, neon city atmosphere, 128 bpm",
-     "lyrics": null
+     "id": "bristi-bheja-raat",
+     "title": "বৃষ্টি ভেজা রাত (Rainy Night)",
+     "artist": "NeuroWave Bangla",
+     "language": "bn",
+     "genre": "Lofi Fusion",
+     "mood": "Nostalgic",
+     "duration": 195,
+     "audioUrl": "/data/songs/bristi-bheja-raat.mp3",
+     "coverUrl": "/covers/bristi-bheja-raat.jpg"
    }
    ```
 4. Commit and push to Git—Vercel automatically updates your live site!
@@ -110,10 +108,21 @@ Adding new songs takes under 30 seconds:
 
 ## 🌐 Deploying to Vercel ($0 / Free Tier)
 
-1. Push your code to a GitHub repository.
+### Option A: Using the Makefile or NPM (Instant CLI Deploy)
+```bash
+# Deploy preview deployment
+make deploy
+# OR: npm run deploy
+
+# Deploy directly to production
+make deploy-prod
+# OR: npm run deploy:prod
+```
+
+### Option B: Automatic Git Push
+1. Push your code to GitHub (`git push origin main`).
 2. Go to [Vercel](https://vercel.com) and click **"Add New Project"**.
-3. Import your repository and click **Deploy**.
-4. **Done!** Your AI Radio is live with global edge caching and free monthly bandwidth.
+3. Import your repository and click **Deploy**. Every push will automatically build and deploy!
 
 ---
 
