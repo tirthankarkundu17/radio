@@ -44,6 +44,17 @@
     "coverUrl": "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "hi-mahi-ve",
+    "title": "माही वे (Mahi Ve)",
+    "artist": "NeuroWave",
+    "language": "hi",
+    "genre": "Hindi Romance",
+    "mood": "Soulful / Heartfelt",
+    "duration": 170,
+    "audioUrl": "/data/songs/hindi/Mahi%20Ve.wav",
+    "coverUrl": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&auto=format&fit=crop&q=80"
+  },
+  {
     "id": "en-loop",
     "title": "Loop",
     "artist": "NeuroWave",
