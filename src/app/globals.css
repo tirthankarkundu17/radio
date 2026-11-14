@@ -81,3 +81,13 @@ html.dark .glass-card {
 .glow-purple {
   box-shadow: 0 0 25px -4px rgba(157, 78, 221, 0.25);
 }
+
+/* Hide scrollbars for smooth mobile pill scrolling */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

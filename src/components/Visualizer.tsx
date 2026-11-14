@@ -172,7 +172,7 @@ export function Visualizer({ analyser, isPlaying }: VisualizerProps) {
       <canvas ref={canvasRef} className="w-full h-full block" />
 
       {/* Mode Switcher */}
-      <div className="absolute top-2 right-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-white/90 dark:bg-slate-900/80 p-1 rounded-lg border border-slate-300 dark:border-white/10 shadow-sm">
+      <div className="absolute top-2 right-2 flex items-center gap-1 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-200 bg-white/90 dark:bg-slate-900/80 p-1 rounded-lg border border-slate-300 dark:border-white/10 shadow-sm z-10">
         <button
           onClick={() => setMode("bars")}
           className={`p-1.5 rounded transition-colors ${
