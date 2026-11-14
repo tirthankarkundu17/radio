@@ -27,7 +27,6 @@
    * **Language Filter (English, Bengali & Hindi):** Dedicated language selector (`All`, `English`, `বাংলা Bengali`, `हिंदी Hindi`) so listeners instantly find songs in their preferred language.
    * Search by keyword, filter by Genre (*Synthwave, Lofi, Ambient, Cyberpunk, Baul / Folk Fusion, Bollywood / Indie Fusion, Cinematic*) or Mood (*Deep Focus, Upbeat, Night Ride, Nostalgic*).
    * Click any song to play instantly.
-   * Inspect the exact prompt, AI model (Suno v3.5, Udio 1.5), and language used.
 2. **"Radio Mode" (One-Click 24/7 Vibe):**
    * A single prominent button in the header: **"📻 Radio Mode: ON"**.
    * **Language-Aware Radio Stations:** When in Radio Mode, listeners can listen to a unified global shuffle OR lock the station to a specific language (e.g., continuous *24/7 Hindi AI Radio*, *24/7 Bengali AI Radio*, or *24/7 English AI Radio*).
@@ -61,9 +60,7 @@ Adding new AI-generated music takes less than 30 seconds:
      "mood": "Nostalgic",
      "audioUrl": "/data/songs/bristi-bheja-raat.mp3",
      "coverUrl": "/covers/bristi-bheja-raat.jpg",
-     "duration": 195,
-     "aiModel": "Suno v3.5",
-     "prompt": "Bengali acoustic lofi ballad, rain sound effects, soft acoustic guitar, melancholic vocal tone"
+     "duration": 195
    }
    ```
 5. Push to GitHub $\rightarrow$ Vercel automatically redeploys live in under 45 seconds!

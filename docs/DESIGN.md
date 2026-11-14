@@ -67,10 +67,9 @@ radio/
 │   │   ├── Header.tsx           # Logo, Language Switcher & Radio Mode Toggle
 │   │   ├── LanguageFilter.tsx   # Language Selector Tabs (All, English, বাংলা, हिंदी)
 │   │   ├── TrackList.tsx        # Searchable, filterable track catalog
-│   │   ├── TrackCard.tsx        # Track row with language badge, play trigger & prompt modal
+│   │   ├── TrackCard.tsx        # Track row with language badge & play trigger
 │   │   ├── Visualizer.tsx       # 60 FPS Canvas audio visualizer (bars & waves)
-│   │   ├── PlayerBar.tsx        # Persistent audio player (progress bar, shuffle, volume)
-│   │   └── PromptModal.tsx      # Modal to view & copy full AI prompts and lyrics (Bengali & Devanagari Hindi support)
+│   │   └── PlayerBar.tsx        # Persistent audio player (progress bar, shuffle, volume)
 │   ├── hooks/
 │   │   └── useAudioPlayer.ts    # Custom hook orchestrating playback, queue, and crossfade
 │   ├── types/
@@ -99,9 +98,7 @@ The single source of truth for all tracks, supporting multi-language tags (Engli
     "mood": "Late Night",
     "duration": 215,
     "audioUrl": "/data/songs/synthetic-rain.mp3",
-    "coverUrl": "/covers/synthetic-rain.jpg",
-    "aiModel": "Suno v3.5",
-    "prompt": "80s retro synthwave, dark arpeggiated bassline, nostalgic rain atmosphere, 120 bpm"
+    "coverUrl": "/covers/synthetic-rain.jpg"
   },
   {
     "id": "trk-02",
@@ -112,9 +109,7 @@ The single source of truth for all tracks, supporting multi-language tags (Engli
     "mood": "Nostalgic",
     "duration": 195,
     "audioUrl": "/data/songs/bristi-bheja-raat.mp3",
-    "coverUrl": "/covers/bristi-bheja-raat.jpg",
-    "aiModel": "Suno v3.5",
-    "prompt": "Bengali acoustic lofi ballad, rain sound effects, soft acoustic guitar, melancholic vocal tone"
+    "coverUrl": "/covers/bristi-bheja-raat.jpg"
   },
   {
     "id": "trk-03",
@@ -125,9 +120,7 @@ The single source of truth for all tracks, supporting multi-language tags (Engli
     "mood": "Late Night Vibe",
     "duration": 204,
     "audioUrl": "/data/songs/rangeen-raatein.mp3",
-    "coverUrl": "/covers/rangeen-raatein.jpg",
-    "aiModel": "Suno v3.5",
-    "prompt": "Hindi indie pop, retro synth, gentle acoustic guitar groove, atmospheric soulful vocals, 115 bpm"
+    "coverUrl": "/covers/rangeen-raatein.jpg"
   },
   {
     "id": "trk-04",
@@ -138,9 +131,7 @@ The single source of truth for all tracks, supporting multi-language tags (Engli
     "mood": "Deep Focus",
     "duration": 182,
     "audioUrl": "/data/songs/lofi-coffee-code.mp3",
-    "coverUrl": "/covers/lofi-coffee-code.jpg",
-    "aiModel": "Udio v1.5",
-    "prompt": "Relaxing lofi study beat, mellow fender rhodes chords, gentle vinyl dust crackle, 80 bpm"
+    "coverUrl": "/covers/lofi-coffee-code.jpg"
   }
 ]
 ```
@@ -159,8 +150,6 @@ export interface Track {
   duration: number;            // Duration in seconds
   audioUrl: string;
   coverUrl: string;
-  aiModel: string;             // e.g. "Suno v3.5", "Udio v1.5"
-  prompt: string;
 }
 ```
 

@@ -99,9 +99,7 @@ Adding new songs takes under 30 seconds:
      "mood": "Nostalgic",
      "duration": 195,
      "audioUrl": "/data/songs/bristi-bheja-raat.mp3",
-     "coverUrl": "/covers/bristi-bheja-raat.jpg",
-     "aiModel": "Suno v3.5",
-     "prompt": "Bengali acoustic lofi ballad, rain sound effects, soft acoustic guitar, melancholic vocal tone"
+     "coverUrl": "/covers/bristi-bheja-raat.jpg"
    }
    ```
 4. Commit and push to Git—Vercel automatically updates your live site!
