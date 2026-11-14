@@ -20,5 +20,16 @@
     "duration": 148,
     "audioUrl": "/data/songs/bengali/Sahar%20Pichtala%20Mon.wav",
     "coverUrl": "https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=600&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": "bn-megher-thikana",
+    "title": "মেঘের ঠিকানা (Megher Thikana)",
+    "artist": "NeuroWave",
+    "language": "bn",
+    "genre": "Romantic Lofi",
+    "mood": "Dreamy / Rain Vibe",
+    "duration": 158,
+    "audioUrl": "/data/songs/bengali/Megher%20Thikana.wav",
+    "coverUrl": "https://images.unsplash.com/photo-1534088568595-a066f410bcda?w=600&auto=format&fit=crop&q=80"
   }
 ]
