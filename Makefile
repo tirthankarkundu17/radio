@@ -29,3 +29,4 @@ deploy: build
 
 deploy-prod: build
 	npx vercel --prod
+
