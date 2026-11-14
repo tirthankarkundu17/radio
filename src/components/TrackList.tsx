@@ -54,9 +54,8 @@ export function TrackList({
         const matchGenre = track.genre.toLowerCase().includes(query);
         const matchMood = track.mood.toLowerCase().includes(query);
         const matchPrompt = track.prompt.toLowerCase().includes(query);
-        const matchLyrics = track.lyrics ? track.lyrics.toLowerCase().includes(query) : false;
 
-        return matchTitle || matchArtist || matchGenre || matchMood || matchPrompt || matchLyrics;
+        return matchTitle || matchArtist || matchGenre || matchMood || matchPrompt;
       }
 
       return true;

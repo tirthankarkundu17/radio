@@ -27,7 +27,7 @@
    * **Language Filter (English, Bengali & Hindi):** Dedicated language selector (`All`, `English`, `বাংলা Bengali`, `हिंदी Hindi`) so listeners instantly find songs in their preferred language.
    * Search by keyword, filter by Genre (*Synthwave, Lofi, Ambient, Cyberpunk, Baul / Folk Fusion, Bollywood / Indie Fusion, Cinematic*) or Mood (*Deep Focus, Upbeat, Night Ride, Nostalgic*).
    * Click any song to play instantly.
-   * Inspect the exact prompt, AI model (Suno v3.5, Udio 1.5), lyrics (supporting Latin, Bengali, and Devanagari Hindi scripts), and language used.
+   * Inspect the exact prompt, AI model (Suno v3.5, Udio 1.5), and language used.
 2. **"Radio Mode" (One-Click 24/7 Vibe):**
    * A single prominent button in the header: **"📻 Radio Mode: ON"**.
    * **Language-Aware Radio Stations:** When in Radio Mode, listeners can listen to a unified global shuffle OR lock the station to a specific language (e.g., continuous *24/7 Hindi AI Radio*, *24/7 Bengali AI Radio*, or *24/7 English AI Radio*).
@@ -48,9 +48,9 @@
 
 Adding new AI-generated music takes less than 30 seconds:
 1. Generate track on Suno / Udio / local AI model.
-2. Drop `song-name.mp3` into `public/tracks/`.
+2. Drop `song-name.mp3` into `public/data/songs/` (checked into the Git repo).
 3. Drop `song-name.jpg` into `public/covers/`.
-4. Add a quick entry to `data/tracks.json`:
+4. Add a quick entry to `src/data/tracks.json`:
    ```json
    {
      "id": "bristi-bheja-raat",
@@ -59,12 +59,11 @@ Adding new AI-generated music takes less than 30 seconds:
      "language": "bn",
      "genre": "Lofi Fusion",
      "mood": "Nostalgic",
-     "audioUrl": "/tracks/bristi-bheja-raat.mp3",
+     "audioUrl": "/data/songs/bristi-bheja-raat.mp3",
      "coverUrl": "/covers/bristi-bheja-raat.jpg",
      "duration": 195,
      "aiModel": "Suno v3.5",
-     "prompt": "Bengali acoustic lofi ballad, rain sound effects, soft acoustic guitar, melancholic vocal tone",
-     "lyrics": "বৃষ্টি ভেজা এই রাতে, স্মৃতির নদী বয়..."
+     "prompt": "Bengali acoustic lofi ballad, rain sound effects, soft acoustic guitar, melancholic vocal tone"
    }
    ```
 5. Push to GitHub $\rightarrow$ Vercel automatically redeploys live in under 45 seconds!

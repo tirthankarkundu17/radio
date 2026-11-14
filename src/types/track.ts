@@ -12,6 +12,4 @@ export interface Track {
   coverUrl: string;
   aiModel: string;  // e.g. "Suno v3.5", "Udio v1.5"
   prompt: string;
-  lyrics: string | null;
 }
-

@@ -98,11 +98,10 @@ The single source of truth for all tracks, supporting multi-language tags (Engli
     "genre": "Synthwave",
     "mood": "Late Night",
     "duration": 215,
-    "audioUrl": "/tracks/synthetic-rain.mp3",
+    "audioUrl": "/data/songs/synthetic-rain.mp3",
     "coverUrl": "/covers/synthetic-rain.jpg",
     "aiModel": "Suno v3.5",
-    "prompt": "80s retro synthwave, dark arpeggiated bassline, nostalgic rain atmosphere, 120 bpm",
-    "lyrics": "[Verse 1]\nNeon reflects in the asphalt below\nCircuits alive in the midnight glow..."
+    "prompt": "80s retro synthwave, dark arpeggiated bassline, nostalgic rain atmosphere, 120 bpm"
   },
   {
     "id": "trk-02",
@@ -112,11 +111,10 @@ The single source of truth for all tracks, supporting multi-language tags (Engli
     "genre": "Lofi Fusion",
     "mood": "Nostalgic",
     "duration": 195,
-    "audioUrl": "/tracks/bristi-bheja-raat.mp3",
+    "audioUrl": "/data/songs/bristi-bheja-raat.mp3",
     "coverUrl": "/covers/bristi-bheja-raat.jpg",
     "aiModel": "Suno v3.5",
-    "prompt": "Bengali acoustic lofi ballad, rain sound effects, soft acoustic guitar, melancholic vocal tone",
-    "lyrics": "[Verse 1]\nবৃষ্টি ভেজা এই রাতে\nস্মৃতির নদী বয় আনমনে...\nশহরের বাতি জ্বলে নেভে একা..."
+    "prompt": "Bengali acoustic lofi ballad, rain sound effects, soft acoustic guitar, melancholic vocal tone"
   },
   {
     "id": "trk-03",
@@ -126,11 +124,10 @@ The single source of truth for all tracks, supporting multi-language tags (Engli
     "genre": "Indie Pop Fusion",
     "mood": "Late Night Vibe",
     "duration": 204,
-    "audioUrl": "/tracks/rangeen-raatein.mp3",
+    "audioUrl": "/data/songs/rangeen-raatein.mp3",
     "coverUrl": "/covers/rangeen-raatein.jpg",
     "aiModel": "Suno v3.5",
-    "prompt": "Hindi indie pop, retro synth, gentle acoustic guitar groove, atmospheric soulful vocals, 115 bpm",
-    "lyrics": "[Verse 1]\nये रंगीन रातें, ये खामोश शहर...\nतेरी यादों का फिर से चला है कहर..."
+    "prompt": "Hindi indie pop, retro synth, gentle acoustic guitar groove, atmospheric soulful vocals, 115 bpm"
   },
   {
     "id": "trk-04",
@@ -140,11 +137,10 @@ The single source of truth for all tracks, supporting multi-language tags (Engli
     "genre": "Lofi",
     "mood": "Deep Focus",
     "duration": 182,
-    "audioUrl": "/tracks/lofi-coffee-code.mp3",
+    "audioUrl": "/data/songs/lofi-coffee-code.mp3",
     "coverUrl": "/covers/lofi-coffee-code.jpg",
     "aiModel": "Udio v1.5",
-    "prompt": "Relaxing lofi study beat, mellow fender rhodes chords, gentle vinyl dust crackle, 80 bpm",
-    "lyrics": null
+    "prompt": "Relaxing lofi study beat, mellow fender rhodes chords, gentle vinyl dust crackle, 80 bpm"
   }
 ]
 ```
@@ -165,7 +161,6 @@ export interface Track {
   coverUrl: string;
   aiModel: string;             // e.g. "Suno v3.5", "Udio v1.5"
   prompt: string;
-  lyrics: string | null;
 }
 ```
 

@@ -10,8 +10,7 @@
     "audioUrl": "https://cdn.freesound.org/previews/612/612610_5674468-lq.mp3",
     "coverUrl": "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=600&auto=format&fit=crop&q=80",
     "aiModel": "Suno v3.5",
-    "prompt": "80s retro synthwave, driving analog bass, bright arpeggiated lead, nostalgic summer night, 128 bpm",
-    "lyrics": "[Verse 1]\nNeon reflects in the asphalt below\nCircuits alive in the midnight glow\nDriving through towers of glass and wire\nHearts beating sync to the electric fire"
+    "prompt": "80s retro synthwave, driving analog bass, bright arpeggiated lead, nostalgic summer night, 128 bpm"
   },
   {
     "id": "trk-02",
@@ -24,8 +23,7 @@
     "audioUrl": "https://cdn.freesound.org/previews/676/676402_5674468-lq.mp3",
     "coverUrl": "https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?w=600&auto=format&fit=crop&q=80",
     "aiModel": "Suno v3.5",
-    "prompt": "Bengali acoustic lofi ballad, rain sound effects, soft acoustic guitar, melancholic vocal tone, 85 bpm",
-    "lyrics": "[Verse 1]\nবৃষ্টি ভেজা এই রাতে\nস্মৃতির নদী বয় আনমনে...\nশহরের বাতি জ্বলে নেভে একা\nতোমার ছায়ায় মন হারিয়ে যায়..."
+    "prompt": "Bengali acoustic lofi ballad, rain sound effects, soft acoustic guitar, melancholic vocal tone, 85 bpm"
   },
   {
     "id": "trk-03",
@@ -38,8 +36,7 @@
     "audioUrl": "https://cdn.freesound.org/previews/682/682633_5674468-lq.mp3",
     "coverUrl": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600&auto=format&fit=crop&q=80",
     "aiModel": "Suno v3.5",
-    "prompt": "Hindi indie pop, retro synth, gentle acoustic guitar groove, atmospheric soulful vocals, 115 bpm",
-    "lyrics": "[Verse 1]\nये रंगीन रातें, ये खामोश शहर...\nतेरी यादों का फिर से चला है कहर...\nहवाओं में बहती है तेरी खुशबू\nदिल ढूँढे हर पल बस तुझको ही तू..."
+    "prompt": "Hindi indie pop, retro synth, gentle acoustic guitar groove, atmospheric soulful vocals, 115 bpm"
   },
   {
     "id": "trk-04",
@@ -52,8 +49,7 @@
     "audioUrl": "https://cdn.freesound.org/previews/648/648430_11861866-lq.mp3",
     "coverUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&q=80",
     "aiModel": "Udio v1.5",
-    "prompt": "Relaxing lofi study beat, mellow fender rhodes chords, gentle vinyl dust crackle, 80 bpm",
-    "lyrics": null
+    "prompt": "Relaxing lofi study beat, mellow fender rhodes chords, gentle vinyl dust crackle, 80 bpm"
   },
   {
     "id": "trk-05",
@@ -66,8 +62,7 @@
     "audioUrl": "https://cdn.freesound.org/previews/612/612610_5674468-lq.mp3",
     "coverUrl": "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=600&auto=format&fit=crop&q=80",
     "aiModel": "Udio v1.5",
-    "prompt": "Bengali traditional Baul ektara fusion with ambient pads, flute melody, rhythmic dub bass, 95 bpm",
-    "lyrics": "[Chorus]\nমন মাঝি তোর বৈঠা নে রে\nআমি আর বাইতে পারলাম না...\nএই ভব নদীর কিনার পানে\nতোর তরী কি থামবে না..."
+    "prompt": "Bengali traditional Baul ektara fusion with ambient pads, flute melody, rhythmic dub bass, 95 bpm"
   },
   {
     "id": "trk-06",
@@ -80,8 +75,6 @@
     "audioUrl": "https://cdn.freesound.org/previews/676/676402_5674468-lq.mp3",
     "coverUrl": "https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?w=600&auto=format&fit=crop&q=80",
     "aiModel": "Suno v3.5",
-    "prompt": "Bollywood dreamy ambient lofi, warm sitar plucks, soft female vocal humming, starry night atmosphere",
-    "lyrics": "[Verse 1]\nतारों के इस शहर में\nगुम हो गए सारे गम...\nनीले गगन की ओट में\nखो जाएं आओ तुम और हम..."
+    "prompt": "Bollywood dreamy ambient lofi, warm sitar plucks, soft female vocal humming, starry night atmosphere"
   }
 ]
-

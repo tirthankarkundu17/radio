@@ -52,4 +52,7 @@ Thumbs.db
 # Keep empty asset folders tracked in Git
 !public/tracks/.gitkeep
 !public/covers/.gitkeep
+!public/data/songs/.gitkeep
+!src/data/songs/.gitkeep
+!data/songs/.gitkeep
 

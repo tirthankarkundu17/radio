@@ -10,6 +10,13 @@ const nextConfig = {
           { key: "Accept-Ranges", value: "bytes" }
         ],
       },
+      {
+        source: "/data/songs/:path*",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+          { key: "Accept-Ranges", value: "bytes" }
+        ],
+      },
     ];
   },
 };

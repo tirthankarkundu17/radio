@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { X, Copy, Check, Sparkles, Music, Terminal } from "lucide-react";
+import { X, Copy, Check, Terminal } from "lucide-react";
 import { Track } from "@/types/track";
 
 interface PromptModalProps {
@@ -29,7 +29,7 @@ export function PromptModal({ track, onClose }: PromptModalProps) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md animate-in fade-in duration-200">
       <div
-        className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl glass-panel p-6 sm:p-8 border border-white/10 shadow-2xl glow-cyan"
+        className="relative w-full max-w-xl max-h-[90vh] overflow-y-auto rounded-3xl glass-panel p-6 sm:p-8 border border-white/10 shadow-2xl glow-cyan"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
@@ -65,40 +65,24 @@ export function PromptModal({ track, onClose }: PromptModalProps) {
           </button>
         </div>
 
-        {/* Content */}
-        <div className="py-6 space-y-6">
-          {/* Prompt Section */}
-          <div>
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-semibold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
-                <Terminal className="w-4 h-4 text-accent-cyan" />
-                Generation Prompt
-              </span>
-              <button
-                onClick={handleCopy}
-                className="flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-lg bg-accent-cyan/10 hover:bg-accent-cyan/20 text-accent-cyan border border-accent-cyan/30 transition-all"
-              >
-                {copied ? <Check className="w-3.5 h-3.5 text-green-400" /> : <Copy className="w-3.5 h-3.5" />}
-                {copied ? "Copied!" : "Copy Prompt"}
-              </button>
-            </div>
-            <div className="p-4 rounded-xl bg-slate-950/70 border border-white/5 text-sm text-slate-200 font-mono leading-relaxed select-all">
-              {track.prompt}
-            </div>
+        {/* Content: Prompt Only */}
+        <div className="py-6 space-y-4">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-xs font-semibold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+              <Terminal className="w-4 h-4 text-accent-cyan" />
+              Generation Prompt
+            </span>
+            <button
+              onClick={handleCopy}
+              className="flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-lg bg-accent-cyan/10 hover:bg-accent-cyan/20 text-accent-cyan border border-accent-cyan/30 transition-all"
+            >
+              {copied ? <Check className="w-3.5 h-3.5 text-green-400" /> : <Copy className="w-3.5 h-3.5" />}
+              {copied ? "Copied!" : "Copy Prompt"}
+            </button>
           </div>
-
-          {/* Lyrics Section (if any) */}
-          {track.lyrics && (
-            <div>
-              <span className="text-xs font-semibold uppercase tracking-wider text-slate-400 flex items-center gap-1.5 mb-2">
-                <Music className="w-4 h-4 text-accent-pink" />
-                Lyrics / Vocal Elements
-              </span>
-              <div className="p-4 rounded-xl bg-slate-950/70 border border-white/5 text-sm text-slate-200 whitespace-pre-line leading-relaxed font-sans">
-                {track.lyrics}
-              </div>
-            </div>
-          )}
+          <div className="p-4 rounded-xl bg-slate-950/70 border border-white/5 text-sm text-slate-200 font-mono leading-relaxed select-all">
+            {track.prompt}
+          </div>
         </div>
 
         {/* Footer */}
@@ -115,4 +99,3 @@ export function PromptModal({ track, onClose }: PromptModalProps) {
     </div>
   );
 }
-
