@@ -1,68 +1,24 @@
 [
   {
-    "id": "trk-01",
-    "title": "Neon Horizons",
-    "artist": "NeuroWave",
-    "language": "en",
-    "genre": "Synthwave",
-    "mood": "Late Night Drive",
-    "duration": 215,
-    "audioUrl": "https://cdn.freesound.org/previews/612/612610_5674468-lq.mp3",
-    "coverUrl": "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=600&auto=format&fit=crop&q=80"
-  },
-  {
-    "id": "trk-02",
-    "title": "বৃষ্টি ভেজা রাত (Rainy Night)",
+    "id": "bn-nirabe-niralay",
+    "title": "নীরবে নিরালায় (Nirabe Niralay)",
     "artist": "NeuroWave",
     "language": "bn",
-    "genre": "Lofi Fusion",
-    "mood": "Nostalgic",
-    "duration": 195,
-    "audioUrl": "https://cdn.freesound.org/previews/676/676402_5674468-lq.mp3",
-    "coverUrl": "https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?w=600&auto=format&fit=crop&q=80"
+    "genre": "Acoustic Ballad",
+    "mood": "Peaceful / Soulful",
+    "duration": 165,
+    "audioUrl": "/data/songs/bengali/Nirabe%20Niralay.wav",
+    "coverUrl": "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=600&auto=format&fit=crop&q=80"
   },
   {
-    "id": "trk-03",
-    "title": "रंगीन रातें (Neon Nights)",
-    "artist": "NeuroWave",
-    "language": "hi",
-    "genre": "Indie Pop",
-    "mood": "Late Night Vibe",
-    "duration": 204,
-    "audioUrl": "https://cdn.freesound.org/previews/682/682633_5674468-lq.mp3",
-    "coverUrl": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600&auto=format&fit=crop&q=80"
-  },
-  {
-    "id": "trk-04",
-    "title": "Midnight Coffee",
-    "artist": "NeuroWave",
-    "language": "en",
-    "genre": "Lofi",
-    "mood": "Deep Focus",
-    "duration": 182,
-    "audioUrl": "https://cdn.freesound.org/previews/648/648430_11861866-lq.mp3",
-    "coverUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&q=80"
-  },
-  {
-    "id": "trk-05",
-    "title": "মাটির গান (Songs of Earth)",
+    "id": "bn-sahar-pichtala-mon",
+    "title": "শহর পিচঢালা মন (Sahar Pichtala Mon)",
     "artist": "NeuroWave",
     "language": "bn",
-    "genre": "Baul Fusion",
-    "mood": "Spiritual / Chill",
-    "duration": 220,
-    "audioUrl": "https://cdn.freesound.org/previews/612/612610_5674468-lq.mp3",
-    "coverUrl": "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=600&auto=format&fit=crop&q=80"
-  },
-  {
-    "id": "trk-06",
-    "title": "तारों का शहर (City of Stars)",
-    "artist": "NeuroWave",
-    "language": "hi",
-    "genre": "Ambient / Chill",
-    "mood": "Dreamy",
-    "duration": 210,
-    "audioUrl": "https://cdn.freesound.org/previews/676/676402_5674468-lq.mp3",
-    "coverUrl": "https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?w=600&auto=format&fit=crop&q=80"
+    "genre": "Indie Fusion",
+    "mood": "Urban Nostalgia",
+    "duration": 148,
+    "audioUrl": "/data/songs/bengali/Sahar%20Pichtala%20Mon.wav",
+    "coverUrl": "https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=600&auto=format&fit=crop&q=80"
   }
 ]
