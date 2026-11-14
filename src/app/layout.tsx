@@ -11,6 +11,10 @@ export const metadata: Metadata = {
     description: "Broadcast your AI-generated music to the world.",
     type: "music.radio_station",
   },
+  icons: {
+    icon: "/icon.svg",
+    apple: "/logo.svg",
+  },
 };
 
 export default function RootLayout({

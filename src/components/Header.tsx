@@ -30,8 +30,12 @@ export function Header({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
         {/* Brand */}
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-accent-cyan via-accent-purple to-accent-pink flex items-center justify-center shadow-lg shadow-accent-cyan/20">
-            <Radio className="w-5 h-5 text-white animate-pulse" />
+          <div className="relative group">
+            <img
+              src="/logo.svg"
+              alt="NeuroWave Logo"
+              className="w-10 h-10 rounded-xl object-contain drop-shadow-[0_0_12px_rgba(0,240,255,0.35)] transition-transform duration-300 group-hover:scale-105"
+            />
           </div>
           <div>
             <div className="flex items-center gap-2">
@@ -39,11 +43,11 @@ export function Header({
                 NeuroWave FM
               </h1>
               <span className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/30">
-                AI Radio
+                Radio
               </span>
             </div>
             <p className="text-xs text-slate-400 hidden sm:block">
-              Continuous 24/7 AI-Generated Beats • {totalTracks} Tracks
+              Continuous 24/7 Music Stream • {totalTracks} Songs
             </p>
           </div>
         </div>
