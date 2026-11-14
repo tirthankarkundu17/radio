@@ -29,7 +29,7 @@ export function useAudioPlayer(allTracks: Track[]) {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [isRadioMode, setIsRadioMode] = useState<boolean>(false);
   const [currentTime, setCurrentTime] = useState<number>(0);
-  const [duration, setDuration] = useState<number>(0);
+  const [duration, setDuration] = useState<number>(allTracks[0]?.duration || 0);
   const [volume, setVolume] = useState<number>(0.8);
   const [isMuted, setIsMuted] = useState<boolean>(false);
   const [selectedLanguage, setSelectedLanguage] = useState<SupportedLanguage>("all");
@@ -139,6 +139,9 @@ export function useAudioPlayer(allTracks: Track[]) {
       configureAudioSession();
       initAudioContext();
       setCurrentTrack(track);
+      if (track.duration && track.duration > 0) {
+        setDuration(track.duration);
+      }
       setPlayedHistory((prev) => [...prev.slice(-15), track.id]);
 
       if (audioRef.current) {
@@ -218,9 +221,18 @@ export function useAudioPlayer(allTracks: Track[]) {
 
   // Seek handler
   const seek = useCallback((timeInSeconds: number) => {
-    if (audioRef.current) {
-      audioRef.current.currentTime = timeInSeconds;
-      setCurrentTime(timeInSeconds);
+    if (audioRef.current && isFinite(timeInSeconds)) {
+      const maxDuration =
+        (audioRef.current.duration && !isNaN(audioRef.current.duration) ? audioRef.current.duration : null) ||
+        currentTrackRef.current?.duration ||
+        0;
+      const clamped = Math.max(0, maxDuration > 0 ? Math.min(timeInSeconds, maxDuration) : timeInSeconds);
+      try {
+        audioRef.current.currentTime = clamped;
+        setCurrentTime(clamped);
+      } catch (e) {
+        console.warn("Audio seek failed:", e);
+      }
     }
   }, []);
 
@@ -403,7 +415,11 @@ export function useAudioPlayer(allTracks: Track[]) {
     audioRef.current = audio;
 
     const onTimeUpdate = () => setCurrentTime(audio.currentTime);
-    const onLoadedMetadata = () => setDuration(audio.duration || 0);
+    const onLoadedMetadata = () => {
+      if (audio.duration && !isNaN(audio.duration) && isFinite(audio.duration) && audio.duration > 0) {
+        setDuration(audio.duration);
+      }
+    };
     const onEnded = () => {
       // In Radio Mode or default loop, auto advance to next
       playNextRef.current();
