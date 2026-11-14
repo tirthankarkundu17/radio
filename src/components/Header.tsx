@@ -19,11 +19,11 @@ export function Header({
   onSelectLanguage,
   totalTracks,
 }: HeaderProps) {
-  const languages: { id: SupportedLanguage; label: string; flag: string }[] = [
-    { id: "all", label: "All Languages", flag: "🌐" },
-    { id: "en", label: "English", flag: "🇬🇧" },
-    { id: "bn", label: "বাংলা (Bengali)", flag: "🇧🇩" },
-    { id: "hi", label: "हिंदी (Hindi)", flag: "🇮🇳" },
+  const languages: { id: SupportedLanguage; label: string; mobileLabel: string }[] = [
+    { id: "all", label: "All Languages", mobileLabel: "All" },
+    { id: "en", label: "English", mobileLabel: "English" },
+    { id: "bn", label: "বাংলা (Bengali)", mobileLabel: "Bengali" },
+    { id: "hi", label: "हिंदी (Hindi)", mobileLabel: "Hindi" },
   ];
 
   return (
@@ -61,13 +61,12 @@ export function Header({
               <button
                 key={lang.id}
                 onClick={() => onSelectLanguage(lang.id)}
-                className={`px-3 py-1.5 rounded-lg transition-all duration-200 flex items-center gap-1.5 ${
+                className={`px-3 py-1.5 rounded-lg transition-all duration-200 flex items-center justify-center ${
                   isActive
                     ? "bg-accent-cyan text-black font-semibold shadow-md shadow-accent-cyan/30"
                     : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
                 }`}
               >
-                <span>{lang.flag}</span>
                 <span>{lang.label}</span>
               </button>
             );
@@ -98,20 +97,20 @@ export function Header({
       </div>
 
       {/* Mobile Language Bar */}
-      <div className="md:hidden flex items-center justify-around py-2 px-3 border-t border-slate-200/80 dark:border-white/5 bg-slate-100/90 dark:bg-slate-950/60 overflow-x-auto">
+      <div className="md:hidden flex items-center justify-around py-2 px-3 border-t border-slate-200/80 dark:border-white/5 bg-slate-100/90 dark:bg-slate-950/60 overflow-x-auto gap-1">
         {languages.map((lang) => {
           const isActive = selectedLanguage === lang.id;
           return (
             <button
               key={lang.id}
               onClick={() => onSelectLanguage(lang.id)}
-              className={`px-2.5 py-1 text-xs rounded-lg transition-all ${
+              className={`px-3 py-1 text-xs rounded-lg transition-all font-medium whitespace-nowrap ${
                 isActive
                   ? "bg-accent-cyan/20 text-accent-cyan font-semibold border border-accent-cyan/40"
                   : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
               }`}
             >
-              {lang.flag} {lang.id.toUpperCase()}
+              {lang.mobileLabel}
             </button>
           );
         })}
