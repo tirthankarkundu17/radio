@@ -11,7 +11,6 @@ interface TrackListProps {
   isPlaying: boolean;
   selectedLanguage: SupportedLanguage;
   onPlayTrack: (track: Track) => void;
-  onInspectTrack: (track: Track) => void;
 }
 
 export function TrackList({
@@ -20,7 +19,6 @@ export function TrackList({
   isPlaying,
   selectedLanguage,
   onPlayTrack,
-  onInspectTrack,
 }: TrackListProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedGenre, setSelectedGenre] = useState<string>("all");
@@ -53,9 +51,8 @@ export function TrackList({
         const matchArtist = track.artist.toLowerCase().includes(query);
         const matchGenre = track.genre.toLowerCase().includes(query);
         const matchMood = track.mood.toLowerCase().includes(query);
-        const matchPrompt = track.prompt.toLowerCase().includes(query);
 
-        return matchTitle || matchArtist || matchGenre || matchMood || matchPrompt;
+        return matchTitle || matchArtist || matchGenre || matchMood;
       }
 
       return true;
@@ -73,7 +70,7 @@ export function TrackList({
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search titles, lyrics, prompts, vibes..."
+            placeholder="Search tracks by title, artist, genre, vibe..."
             className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-900/60 border border-white/10 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-accent-cyan/50 focus:ring-1 focus:ring-accent-cyan/50 transition-all"
           />
           {searchQuery && (
@@ -88,7 +85,7 @@ export function TrackList({
 
         {/* Counter */}
         <div className="text-xs font-mono text-slate-400 flex items-center justify-between sm:justify-end gap-2 px-1">
-          <span>{filteredTracks.length} tracks found</span>
+          <span>{filteredTracks.length} tracks</span>
         </div>
       </div>
 
@@ -125,7 +122,6 @@ export function TrackList({
               isActive={currentTrack?.id === track.id}
               isPlaying={isPlaying}
               onPlay={onPlayTrack}
-              onInspect={onInspectTrack}
             />
           ))}
         </div>
@@ -148,4 +144,3 @@ export function TrackList({
     </div>
   );
 }
-

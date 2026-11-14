@@ -13,8 +13,7 @@
 
 - **🌐 Multi-Language Support (English, Bengali & Hindi):** Dedicated language selector (`All`, `English`, `বাংলা Bengali`, `हिंदी Hindi`). Listeners can browse songs by language or lock Radio Mode onto a single language station.
 - **📻 One-Click "Radio Mode":** Continuous autoplay with smart shuffle and smooth crossfades—delivers the hands-free vibe of a 24/7 live radio station without streaming server costs.
-- **🎧 On-Demand Jukebox:** Browse your complete AI music catalog, search by keyword, and filter by language, genre (*Synthwave, Lofi, Ambient, Baul / Folk, Bollywood / Indie Fusion*), or mood (*Deep Focus, Chill, Nostalgic*).
-- **🤖 Prompt & Model Inspector:** Inspect the exact prompts, parameters, and AI models (*Suno v3.5, Udio v1.5*, etc.) used to create each song, with one-click prompt copying.
+- **🎧 On-Demand Jukebox:** Browse your complete music catalog, search by title/artist/genre, and filter by language, genre (*Synthwave, Lofi, Ambient, Baul / Folk, Bollywood / Indie Fusion*), or mood (*Deep Focus, Chill, Nostalgic*).
 - **🌊 60 FPS Audio Visualizer:** Real-time canvas audio visualizer with reactive neon spectrum bars and oscilloscope waveforms powered by the Web Audio API.
 - **📱 Mobile Lock-Screen Controls:** Native background audio playback on iOS and Android with lock screen metadata and artwork via the W3C MediaSession API.
 - **⚡ Zero External Databases & $0 Hosting:** All MP3s, artwork, and metadata are checked directly into the repository. Deploys to Vercel with **100 GB of free bandwidth per month** (~20,000 song plays/month).
@@ -27,7 +26,7 @@
 radio/
 ├── public/
 │   ├── data/
-│   │   └── songs/               # Drop your AI-generated MP3 audio files here
+│   │   └── songs/               # Drop your MP3 audio files here
 │   │       ├── cyber-drift.mp3
 │   │       └── bristi-raat.mp3
 │   └── covers/                  # Drop your album covers / artwork here
@@ -41,10 +40,9 @@ radio/
 │   ├── components/
 │   │   ├── Header.tsx           # Station logo, filters & Radio Mode toggle
 │   │   ├── TrackList.tsx        # Searchable and filterable music library
-│   │   ├── TrackCard.tsx        # Single track row with play trigger & prompt button
+│   │   ├── TrackCard.tsx        # Single track row with play trigger
 │   │   ├── Visualizer.tsx       # 60 FPS Canvas audio visualizer
-│   │   ├── PlayerBar.tsx        # Persistent bottom player with seek & volume controls
-│   │   └── PromptModal.tsx      # Modal to view & copy full AI prompts
+│   │   └── PlayerBar.tsx        # Persistent bottom player with seek & volume controls
 │   ├── hooks/
 │   │   └── useAudioPlayer.ts    # Audio playback engine, queue manager, & crossfade logic
 │   ├── types/

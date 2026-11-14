@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import rawTracks from "@/data/tracks.json";
 import { Track } from "@/types/track";
 import { useAudioPlayer } from "@/hooks/useAudioPlayer";
@@ -8,12 +7,10 @@ import { Header } from "@/components/Header";
 import { Visualizer } from "@/components/Visualizer";
 import { TrackList } from "@/components/TrackList";
 import { PlayerBar } from "@/components/PlayerBar";
-import { PromptModal } from "@/components/PromptModal";
-import { Sparkles, Radio, Music, Disc3 } from "lucide-react";
+import { Radio, Music, Disc3 } from "lucide-react";
 
 export default function Home() {
   const tracks = rawTracks as Track[];
-  const [inspectedTrack, setInspectedTrack] = useState<Track | null>(null);
 
   const {
     currentTrack,
@@ -37,10 +34,10 @@ export default function Home() {
   } = useAudioPlayer(tracks);
 
   const languageTitles = {
-    all: "Multilingual Global Station",
-    en: "English AI Synth & Lofi Station",
-    bn: "বাংলা এআই রেডিও (Bengali Station)",
-    hi: "हिंदी एआई रेडियो (Hindi Station)",
+    all: "Multilingual Global Radio",
+    en: "English Station",
+    bn: "বাংলা রেডিও (Bengali Station)",
+    hi: "हिंदी रेडियो (Hindi Station)",
   };
 
   return (
@@ -97,26 +94,14 @@ export default function Home() {
 
             {/* Now Playing Info & Visualizer */}
             <div className="flex-1 w-full space-y-4">
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <div className="flex items-center gap-2">
-                  <span className="flex items-center gap-1 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-accent-pink/15 text-accent-pink border border-accent-pink/30">
-                    <Radio className="w-3.5 h-3.5 animate-pulse" />
-                    {isRadioMode ? "Radio Streaming" : "Now Playing"}
-                  </span>
-                  <span className="text-xs text-slate-400 font-mono">
-                    {languageTitles[selectedLanguage]}
-                  </span>
-                </div>
-
-                {currentTrack && (
-                  <button
-                    onClick={() => setInspectedTrack(currentTrack)}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-accent-cyan/10 hover:bg-accent-cyan/20 text-accent-cyan border border-accent-cyan/30 transition-all shadow-sm"
-                  >
-                    <Sparkles className="w-3.5 h-3.5" />
-                    Inspect AI Prompt
-                  </button>
-                )}
+              <div className="flex items-center gap-2">
+                <span className="flex items-center gap-1 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-accent-pink/15 text-accent-pink border border-accent-pink/30">
+                  <Radio className="w-3.5 h-3.5 animate-pulse" />
+                  {isRadioMode ? "Radio Streaming" : "Now Playing"}
+                </span>
+                <span className="text-xs text-slate-400 font-mono">
+                  {languageTitles[selectedLanguage]}
+                </span>
               </div>
 
               <div>
@@ -124,14 +109,14 @@ export default function Home() {
                   {currentTrack?.title || "Select a track"}
                 </h2>
                 <p className="text-sm sm:text-base text-slate-300 mt-1 flex items-center gap-2">
-                  <span>{currentTrack?.artist || "NeuroWave FM"}</span>
+                  <span>{currentTrack?.artist || "NeuroWave"}</span>
                   {currentTrack && (
                     <>
                       <span>•</span>
                       <span className="text-accent-cyan font-medium">{currentTrack.genre}</span>
                       <span>•</span>
                       <span className="text-slate-400 text-xs font-mono">
-                        {currentTrack.aiModel}
+                        {currentTrack.mood}
                       </span>
                     </>
                   )}
@@ -148,9 +133,9 @@ export default function Home() {
         <section className="space-y-4">
           <div className="flex items-center justify-between border-b border-white/10 pb-4">
             <div>
-              <h3 className="text-xl font-bold text-white tracking-tight">Track Library</h3>
+              <h3 className="text-xl font-bold text-white tracking-tight">All Songs</h3>
               <p className="text-xs text-slate-400">
-                Browse our curated AI tracks, inspect generation prompts, and listen on-demand.
+                Click any song to play, or toggle Radio Mode to let it stream continuously.
               </p>
             </div>
           </div>
@@ -161,7 +146,6 @@ export default function Home() {
             isPlaying={isPlaying}
             selectedLanguage={selectedLanguage}
             onPlayTrack={playTrack}
-            onInspectTrack={setInspectedTrack}
           />
         </section>
       </main>
@@ -182,12 +166,7 @@ export default function Home() {
         onSeek={seek}
         onChangeVolume={changeVolume}
         onToggleMute={toggleMute}
-        onInspect={setInspectedTrack}
       />
-
-      {/* Prompt & Lyrics Inspector Modal */}
-      <PromptModal track={inspectedTrack} onClose={() => setInspectedTrack(null)} />
     </div>
   );
 }
-

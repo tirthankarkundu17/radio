@@ -18,7 +18,6 @@ interface PlayerBarProps {
   onSeek: (time: number) => void;
   onChangeVolume: (volume: number) => void;
   onToggleMute: () => void;
-  onInspect: (track: Track) => void;
 }
 
 export function PlayerBar({
@@ -36,7 +35,6 @@ export function PlayerBar({
   onSeek,
   onChangeVolume,
   onToggleMute,
-  onInspect,
 }: PlayerBarProps) {
   if (!currentTrack) return null;
 
@@ -90,14 +88,6 @@ export function PlayerBar({
               {currentTrack.artist} • {currentTrack.genre}
             </p>
           </div>
-          <button
-            onClick={() => onInspect(currentTrack)}
-            className="hidden lg:flex items-center gap-1 text-[11px] font-medium text-slate-400 hover:text-accent-cyan transition-colors ml-1 flex-shrink-0"
-            title="Inspect Prompt"
-          >
-            <Sparkles className="w-3.5 h-3.5" />
-            Prompt
-          </button>
         </div>
 
         {/* Center: Controls */}

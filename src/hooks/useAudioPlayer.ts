@@ -182,8 +182,8 @@ export function useAudioPlayer(allTracks: Track[]) {
 
     navigator.mediaSession.metadata = new MediaMetadata({
       title: currentTrack.title,
-      artist: `${currentTrack.artist} • ${currentTrack.aiModel}`,
-      album: `NeuroWave AI Radio [${langLabel}]`,
+      artist: currentTrack.artist,
+      album: `NeuroWave Radio [${langLabel}]`,
       artwork: [
         { src: currentTrack.coverUrl, sizes: "512x512", type: "image/jpeg" },
         { src: currentTrack.coverUrl, sizes: "192x192", type: "image/jpeg" },
