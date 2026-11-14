@@ -105,17 +105,17 @@ export default function Home() {
               </div>
 
               <div>
-                <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+                <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
                   {currentTrack?.title || "Select a track"}
                 </h2>
-                <p className="text-sm sm:text-base text-slate-300 mt-1 flex items-center gap-2">
+                <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 mt-1 flex items-center gap-2">
                   <span>{currentTrack?.artist || "NeuroWave"}</span>
                   {currentTrack && (
                     <>
                       <span>•</span>
                       <span className="text-accent-cyan font-medium">{currentTrack.genre}</span>
                       <span>•</span>
-                      <span className="text-slate-400 text-xs font-mono">
+                      <span className="text-slate-500 dark:text-slate-400 text-xs font-mono">
                         {currentTrack.mood}
                       </span>
                     </>
@@ -131,10 +131,10 @@ export default function Home() {
 
         {/* Track Catalog Section */}
         <section className="space-y-4">
-          <div className="flex items-center justify-between border-b border-white/10 pb-4">
+          <div className="flex items-center justify-between border-b border-slate-200/80 dark:border-white/10 pb-4">
             <div>
-              <h3 className="text-xl font-bold text-white tracking-tight">All Songs</h3>
-              <p className="text-xs text-slate-400">
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">All Songs</h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400">
                 Click any song to play, or toggle Radio Mode to let it stream continuously.
               </p>
             </div>

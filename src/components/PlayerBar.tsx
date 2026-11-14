@@ -48,10 +48,10 @@ export function PlayerBar({
   const progressPercent = duration > 0 ? (currentTime / duration) * 100 : 0;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-40 glass-panel border-t border-white/10 shadow-2xl">
+    <div className="fixed bottom-0 left-0 right-0 z-40 glass-panel border-t border-slate-200/80 dark:border-white/10 shadow-2xl transition-colors duration-300">
       {/* Interactive Progress Seekbar on top edge */}
       <div
-        className="relative w-full h-1.5 bg-slate-800/80 cursor-pointer group"
+        className="relative w-full h-1.5 bg-slate-300 dark:bg-slate-800/80 cursor-pointer group"
         onClick={(e) => {
           const rect = e.currentTarget.getBoundingClientRect();
           const clickX = e.clientX - rect.left;
@@ -75,16 +75,16 @@ export function PlayerBar({
           <img
             src={currentTrack.coverUrl}
             alt={currentTrack.title}
-            className="w-12 h-12 rounded-xl object-cover border border-white/10 flex-shrink-0"
+            className="w-12 h-12 rounded-xl object-cover border border-black/5 dark:border-white/10 flex-shrink-0"
           />
           <div className="min-w-0">
-            <h4 className="text-sm font-semibold text-white truncate flex items-center gap-2">
+            <h4 className="text-sm font-semibold text-slate-900 dark:text-white truncate flex items-center gap-2">
               <span className="truncate">{currentTrack.title}</span>
               <span className="text-[10px] font-bold uppercase px-1.5 py-0.5 rounded bg-accent-cyan/15 text-accent-cyan flex-shrink-0">
                 {currentTrack.language.toUpperCase()}
               </span>
             </h4>
-            <p className="text-xs text-slate-400 truncate">
+            <p className="text-xs text-slate-500 dark:text-slate-400 truncate">
               {currentTrack.artist} • {currentTrack.genre}
             </p>
           </div>
@@ -96,7 +96,7 @@ export function PlayerBar({
             {/* Previous */}
             <button
               onClick={onPrevious}
-              className="p-1.5 text-slate-400 hover:text-white transition-colors"
+              className="p-1.5 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
               title="Previous Track"
             >
               <SkipBack className="w-5 h-5" />
@@ -118,7 +118,7 @@ export function PlayerBar({
             {/* Next */}
             <button
               onClick={onNext}
-              className="p-1.5 text-slate-400 hover:text-white transition-colors"
+              className="p-1.5 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
               title="Next Track"
             >
               <SkipForward className="w-5 h-5" />
@@ -129,8 +129,8 @@ export function PlayerBar({
               onClick={onToggleRadio}
               className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-medium transition-all ${
                 isRadioMode
-                  ? "bg-accent-pink/20 text-accent-pink border border-accent-pink/30 shadow-md shadow-accent-pink/20"
-                  : "text-slate-400 hover:text-white bg-white/5"
+                  ? "bg-accent-pink/15 text-accent-pink border border-accent-pink/30 shadow-md shadow-accent-pink/20"
+                  : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white bg-slate-200 dark:bg-white/5"
               }`}
               title="Toggle Continuous Radio Shuffle"
             >
@@ -140,7 +140,7 @@ export function PlayerBar({
           </div>
 
           {/* Timestamps */}
-          <div className="flex items-center justify-between w-full text-[11px] font-mono text-slate-400 px-2">
+          <div className="flex items-center justify-between w-full text-[11px] font-mono text-slate-500 dark:text-slate-400 px-2">
             <span>{formatTime(currentTime)}</span>
             <span>{formatTime(duration)}</span>
           </div>
@@ -150,7 +150,7 @@ export function PlayerBar({
         <div className="hidden sm:flex items-center justify-end gap-3 min-w-[150px]">
           <button
             onClick={onToggleMute}
-            className="p-1.5 text-slate-400 hover:text-white transition-colors"
+            className="p-1.5 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
             title={isMuted ? "Unmute" : "Mute"}
           >
             {isMuted || volume === 0 ? (
@@ -166,7 +166,7 @@ export function PlayerBar({
             step={0.01}
             value={isMuted ? 0 : volume}
             onChange={(e) => onChangeVolume(parseFloat(e.target.value))}
-            className="w-20 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-accent-cyan"
+            className="w-20 h-1 bg-slate-300 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-accent-cyan"
             title="Volume"
           />
         </div>
@@ -174,4 +174,3 @@ export function PlayerBar({
     </div>
   );
 }
-

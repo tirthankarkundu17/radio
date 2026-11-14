@@ -18,9 +18,9 @@ export function TrackCard({ track, isActive, isPlaying, onPlay }: TrackCardProps
   };
 
   const langBadges = {
-    en: { label: "EN", bg: "bg-blue-500/20 text-blue-300 border-blue-500/30" },
-    bn: { label: "বাংলা", bg: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30" },
-    hi: { label: "हिंदी", bg: "bg-amber-500/20 text-amber-300 border-amber-500/30" },
+    en: { label: "EN", bg: "bg-blue-500/15 text-blue-600 dark:text-blue-300 border-blue-500/30" },
+    bn: { label: "বাংলা", bg: "bg-emerald-500/15 text-emerald-600 dark:text-emerald-300 border-emerald-500/30" },
+    hi: { label: "हिंदी", bg: "bg-amber-500/15 text-amber-600 dark:text-amber-300 border-amber-500/30" },
   };
 
   const badge = langBadges[track.language] || langBadges.en;
@@ -30,14 +30,14 @@ export function TrackCard({ track, isActive, isPlaying, onPlay }: TrackCardProps
       onClick={() => onPlay(track)}
       className={`group relative flex items-center justify-between p-3 sm:p-4 rounded-2xl transition-all duration-200 border cursor-pointer ${
         isActive
-          ? "bg-slate-800/80 border-accent-cyan/40 shadow-lg shadow-accent-cyan/10"
-          : "glass-card border-white/5 hover:border-white/15 hover:bg-slate-800/40"
+          ? "bg-slate-200/90 dark:bg-slate-800/80 border-accent-cyan/60 dark:border-accent-cyan/40 shadow-lg shadow-accent-cyan/10"
+          : "glass-card border-slate-200/60 dark:border-white/5 hover:border-slate-300 dark:hover:border-white/15 hover:bg-slate-100/80 dark:hover:bg-slate-800/40"
       }`}
     >
       {/* Left: Thumbnail & Info */}
       <div className="flex items-center gap-3 sm:gap-4 min-w-0">
         {/* Album Art with Play Overlay */}
-        <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden flex-shrink-0 group/cover">
+        <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden flex-shrink-0 group/cover border border-black/5 dark:border-white/10">
           <img
             src={track.coverUrl}
             alt={track.title}
@@ -68,25 +68,25 @@ export function TrackCard({ track, isActive, isPlaying, onPlay }: TrackCardProps
             >
               {badge.label}
             </span>
-            <span className="text-xs text-slate-400">
+            <span className="text-xs text-slate-500 dark:text-slate-400">
               {track.genre} • {track.mood}
             </span>
           </div>
           <h3
             className={`text-sm sm:text-base font-semibold truncate ${
-              isActive ? "text-accent-cyan" : "text-white group-hover:text-slate-100"
+              isActive ? "text-accent-cyan" : "text-slate-900 dark:text-white group-hover:text-accent-purple dark:group-hover:text-slate-100"
             }`}
           >
             {track.title}
           </h3>
-          <p className="text-xs text-slate-400 truncate">{track.artist}</p>
+          <p className="text-xs text-slate-500 dark:text-slate-400 truncate">{track.artist}</p>
         </div>
       </div>
 
       {/* Right: Duration */}
       <div className="flex items-center gap-2 flex-shrink-0 ml-3">
-        <span className="text-xs font-mono text-slate-400 flex items-center gap-1 min-w-[45px] justify-end">
-          <Clock className="w-3 h-3 text-slate-500 hidden sm:inline" />
+        <span className="text-xs font-mono text-slate-500 dark:text-slate-400 flex items-center gap-1 min-w-[45px] justify-end">
+          <Clock className="w-3 h-3 text-slate-400 dark:text-slate-500 hidden sm:inline" />
           {formatTime(track.duration)}
         </span>
       </div>
