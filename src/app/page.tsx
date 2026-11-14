@@ -41,7 +41,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col pb-32">
+    <div className="min-h-screen bg-slate-100 dark:bg-[#08090d] text-slate-900 dark:text-foreground flex flex-col pb-32 transition-colors duration-250">
       {/* Top Header */}
       <Header
         isRadioMode={isRadioMode}
@@ -54,10 +54,10 @@ export default function Home() {
       {/* Main Container */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 w-full space-y-8 flex-1">
         {/* Hero / Live Broadcast Stage */}
-        <section className="relative overflow-hidden rounded-3xl glass-panel p-6 sm:p-8 border border-white/10 shadow-2xl">
+        <section className="relative overflow-hidden rounded-3xl glass-panel p-6 sm:p-8 border border-slate-200/90 dark:border-white/10 shadow-xl shadow-slate-200/60 dark:shadow-2xl">
           {/* Subtle Ambient Glow Backgrounds */}
-          <div className="absolute -top-24 -left-24 w-72 h-72 bg-accent-cyan/15 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-accent-purple/20 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -top-24 -left-24 w-72 h-72 bg-accent-cyan/15 rounded-full blur-3xl pointer-events-none opacity-40 dark:opacity-100" />
+          <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-accent-purple/20 rounded-full blur-3xl pointer-events-none opacity-40 dark:opacity-100" />
 
           <div className="relative z-10 flex flex-col lg:flex-row items-center gap-6 sm:gap-8">
             {/* Spinning Vinyl / Album Art */}
@@ -66,7 +66,7 @@ export default function Home() {
                 className={`relative w-40 h-40 sm:w-52 sm:h-52 rounded-2xl overflow-hidden shadow-2xl border-2 transition-all duration-500 ${
                   isPlaying
                     ? "border-accent-cyan shadow-accent-cyan/30 scale-[1.02]"
-                    : "border-white/10"
+                    : "border-slate-200 dark:border-white/10"
                 }`}
               >
                 {currentTrack?.coverUrl ? (

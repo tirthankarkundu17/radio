@@ -10,10 +10,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#090a0f",
-        foreground: "#f0f2f8",
-        card: "#121420",
-        "card-hover": "#1a1d2e",
+        background: "var(--background)",
+        foreground: "var(--foreground)",
+        card: "var(--card)",
         accent: {
           cyan: "#00f0ff",
           purple: "#9d4edd",
